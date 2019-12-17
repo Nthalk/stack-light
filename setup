@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
+PATH=$PATH:./node_modules/.bin
+
+####################################################################################################
+# Upgrade system
+####################################################################################################
+sudo yum update -y
+
+####################################################################################################
+# Database
+####################################################################################################
+
+# Install npm
+if ! hash npm; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+  source ~/.nvm/nvm.sh
+  nvm install node
+fi
+
+# Is postgres db installed?
+if ! hash psql; then
+  sudo yum install postgresql96-server.x86_64 -y
+  sudo service postgresql96 initdb
+  echo "listen_addresses = '*'" \
+    | sudo tee -a /var/lib/pgsql96/data/postgresql.conf > /dev/null
+
+  echo "host all all 0.0.0.0/0 md5" \
+    | sudo tee -a  /var/lib/pgsql96/data/pg_hba.conf > /dev/null
+  sudo chkconfig postgresql96 on
+  sudo service postgresql96 start
+fi
+
+# Is postgres db running?
+if ! sudo su postgres -c 'cd ~/ && echo "" | psql' 2>/dev/null ; then
+  sudo service postgresql96 start
+fi
+
+####################################################################################################
+# App Setup
+####################################################################################################
+
+# Install app dependencies
+cd web-server
+npm install
+
+cd ../web-client
+npm install
+cd ..
+
+
+####################################################################################################
+# Build initial project
+####################################################################################################
+
+./db-reset
+./build

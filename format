@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
+
+PROJECT=$(echo $1 | cut -d'/' -f1)
+FILE=$(echo $1 | cut -d'/' -f2-)
+cd $PROJECT
+./node_modules/.bin/prettier --write "$FILE"

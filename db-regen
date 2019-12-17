@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
+cd web-server
+PATH=$PATH:./node_modules/.bin
+
+echo 'Regenerating database models...'
+schemats generate -c postgres://webstack:webstack@localhost:5432/webstack -s public -o ./gen/db.ts

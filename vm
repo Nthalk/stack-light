@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
+PATH=$PATH:./node_modules/.bin
+VAGRANT_CWD=$(pwd)
+
+if [[ "$1" == 'exec' ]]; then
+  ./vm ssh <<EOF
+  cd /vagrant
+  $2
+EOF
+  exit
+fi
+
+vagrant "$@"

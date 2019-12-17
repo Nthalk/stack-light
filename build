@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
+PATH=$PATH:./node_modules/.bin
+
+./db-migrate
+./db-regen
+
+cd web-server
+npm run build
+
+cd ../web-client
+npm run build
+

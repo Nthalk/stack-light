@@ -1,0 +1,6 @@
+dist
+node_modules
+/.c9/metadata/
+/.c9/.nakignore
+.c9/out_of_memory
+.vagrant

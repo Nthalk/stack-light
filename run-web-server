@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
+cd web-server
+PATH=$PATH:./node_modules/.bin
+
+nodemon \
+  --watch 'src/**/*.ts' \
+  --ignore 'src/**/*.spec.ts' \
+  --exec 'ts-node' src/index.ts
