@@ -42,10 +42,10 @@ fi
 ####################################################################################################
 
 # Install app dependencies
-cd web-server
+cd server
 npm install
 
-cd ../web-client
+cd ../web
 npm install
 cd ..
 

@@ -9,15 +9,16 @@ Install `VirtualBox`, download at https://www.virtualbox.org/wiki/Downloads
 
 Clone the repo:
 
-    git clone git@github.com:Nthalk/react-postgres-express
+    git clone git@github.com:Nthalk/stack-light.git
+    cd stack-light
     
 Initialize the virtual machine:
 
-    vagrant up
+    ./vm up
     
 Run scripts to setup the machine:
 
-    vagrant provision
+    ./vm exec ./setup
     
 ### Cloud9 setup
 
@@ -41,7 +42,13 @@ Next, clone this repo in your shell tab in your `Cloud9 IDE`.
 
     cd ~/
     rm -rf environment
-    git clone git@github.com:Nthalk/react-postgres-express.git
+    git clone git@github.com:Nthalk/stack-light.git environment
+    
+And run the provisioning script to ensure that the database is installed and running, the system is
+up to date, and that the applications can build.
+
+    cd environment
+    ./setup
 
 ## Development
 
@@ -62,8 +69,8 @@ Next, clone this repo in your shell tab in your `Cloud9 IDE`.
     
 ### Run servers
 
-    ./run-web-server
-    ./run-web-client   
+    ./run-server
+    ./run-web   
 
 # TODO
 

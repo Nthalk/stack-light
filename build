@@ -6,9 +6,9 @@ PATH=$PATH:./node_modules/.bin
 ./db-migrate
 ./db-regen
 
-cd web-server
+cd server
 npm run build
 
-cd ../web-client
+cd ../web
 npm run build
 

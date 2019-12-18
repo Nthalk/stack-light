@@ -1,5 +1,5 @@
-import {ApiResponse} from "../../web-server/src/api/ApiResponse";
-import {TestApi} from "../../web-server/src/api/TestApi";
+import {ApiResponse} from "../../server/src/api/ApiResponse";
+import {TestApi} from "../../server/src/api/TestApi";
 import { createContext, useState, useMemo } from "react";
 
 

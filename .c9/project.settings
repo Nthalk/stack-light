@@ -52,13 +52,13 @@
                     "toolbar": true
                 },
                 "Web Client": {
-                    "command": "./run-web-client",
+                    "command": "./run-web",
                     "name": "Web Client",
                     "runner": "Shell command",
                     "toolbar": true
                 },
                 "Web Server": {
-                    "command": "./run-web-server",
+                    "command": "./run-server",
                     "name": "Web Server",
                     "runner": "Shell command",
                     "toolbar": true
