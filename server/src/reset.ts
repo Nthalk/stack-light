@@ -5,7 +5,7 @@ import pgp, {QueryFile} from 'pg-promise';
   let db = pgp()('postgres://postgres:postgres@localhost:5432/postgres');
   try {
     const resetResult = await db.none(
-      new QueryFile(path.resolve(__dirname, '../db/reset.sql'))
+      new QueryFile(path.resolve(__dirname, './db/reset.sql'))
     );
     db.$pool.end();
     db = pgp()('postgres://webstack:webstack@localhost:5432/webstack');

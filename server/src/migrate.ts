@@ -10,7 +10,7 @@ import path from 'path';
       user: 'webstack',
       port: 5432,
     },
-    path.resolve(__dirname, '../db/migrations'),
+    path.resolve(__dirname, './db/migrations'),
     {logger: (msg: string) => console.log(msg)}
   );
 })();

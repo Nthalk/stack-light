@@ -5,4 +5,4 @@ cd server
 PATH=$PATH:./node_modules/.bin
 
 echo 'Resetting database...'
-cat ./db/reset.sql | sudo -u postgres psql -a
+cat ./src/db/reset.sql | sudo -u postgres psql -a
