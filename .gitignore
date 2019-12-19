@@ -1,6 +1,9 @@
 dist
 node_modules
+secrets.ts
 /.c9/metadata/
 /.c9/.nakignore
-.c9/out_of_memory
-.vagrant
+/.c9/out_of_memory
+/.vagrant
+
+

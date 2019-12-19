@@ -2,6 +2,11 @@
 
 ## Setup
 
+### Secrets
+
+There is a `secrets.ts.template` file, you should copy this file as `secrets.ts` and then never 
+commit it to git. 
+
 ### Local setup
 
 Install `Vagrant`, download at https://www.vagrantup.com/downloads.html
