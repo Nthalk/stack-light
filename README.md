@@ -4,8 +4,8 @@
 
 ### Secrets
 
-There is a `secrets.ts.template` file, you should copy this file as `secrets.ts` and then never 
-commit it to git. 
+There is a `secrets.ts.template` file, you should copy this file as `secrets.ts` and then never
+commit it to git.
 
 ### Local setup
 
@@ -16,15 +16,15 @@ Clone the repo:
 
     git clone git@github.com:Nthalk/stack-light.git
     cd stack-light
-    
+
 Initialize the virtual machine:
 
     ./vm up
-    
+
 Run scripts to setup the machine:
 
     ./vm exec ./setup
-    
+
 ### Cloud9 setup
 
 First you'll need an `AWS Account` at https://console.aws.amazon.com/console
@@ -39,7 +39,7 @@ When your machine is created and setup, you should your use `Github` account:
 
     ssh-keygen
     # Copy the output of the following command
-    cat ~/.ssh/id_rsa.pub 
+    cat ~/.ssh/id_rsa.pub
 
 Then enter this key into your `Github ssh keys` at https://github.com/settings/ssh/new
 
@@ -48,7 +48,7 @@ Next, clone this repo in your shell tab in your `Cloud9 IDE`.
     cd ~/
     rm -rf environment
     git clone git@github.com:Nthalk/stack-light.git environment
-    
+
 And run the provisioning script to ensure that the database is installed and running, the system is
 up to date, and that the applications can build.
 
@@ -61,33 +61,35 @@ up to date, and that the applications can build.
 
     # Cloud9
     ./db-reset
-    
+
     # Local
     ./vm exec ./db-reset
-    
+
 ### Migrate
-    
+
     ./db-migrate
 
 ### Regen
+
     ./db-regen
-    
+
 ### Run servers
 
     ./run-server
-    ./run-web   
+    ./run-web
 
 # TODO
 
- - [x] React client, live-reload
- - [x] Express webservice, live-reload
- - [x] Cloud9 IDE /environment
- - [x] DB Reset
- - [x] DB Migrations: https://github.com/thomwright/postgres-migrations
- - [x] DB Schema: https://github.com/SweetIQ/schemats
- - [ ] Users/Authentication: (passport) http://www.passportjs.org/
- - [ ] More workers: https://nodejs.org/api/cluster.html
- - [ ] Job Queue: https://github.com/Automattic/kue
- - [ ] SMS client: (twilio) https://www.twilio.com/docs/libraries/node
- - [ ] Email: (Sendgrid) https://sendgrid.com/docs/for-developers/sending-email/v3-nodejs-code-example/
- - [ ] Payments: (stripe) https://github.com/stripe/stripe-node
+- [x] React client, live-reload
+- [x] Express webservice, live-reload
+- [x] Cloud9 IDE /environment
+- [x] DB Reset
+- [x] DB Migrations: https://github.com/thomwright/postgres-migrations
+- [x] DB Schema: https://github.com/SweetIQ/schemats
+- [x] Generated Rest Api Client
+- [ ] Users/Authentication: (passport) http://www.passportjs.org/
+- [ ] More workers: https://nodejs.org/api/cluster.html
+- [ ] Job Queue: https://github.com/Automattic/kue
+- [ ] SMS client: (twilio) https://www.twilio.com/docs/libraries/node
+- [ ] Email: (Sendgrid) https://sendgrid.com/docs/for-developers/sending-email/v3-nodejs-code-example/
+- [ ] Payments: (stripe) https://github.com/stripe/stripe-node

@@ -23,11 +23,8 @@ fi
 if ! hash psql; then
   sudo yum install postgresql96-server.x86_64 -y
   sudo service postgresql96 initdb
-  echo "listen_addresses = '*'" \
-    | sudo tee -a /var/lib/pgsql96/data/postgresql.conf > /dev/null
-
-  echo "host all all 0.0.0.0/0 md5" \
-    | sudo tee -a  /var/lib/pgsql96/data/pg_hba.conf > /dev/null
+  sudo sed -i '1ilisten_addresses = '*'' /var/lib/pgsql96/data/postgresql.conf 
+  sudo sed -i '1ihost webstack webstack 0.0.0.0/0 md5\nlocal webstack webstack md5\n' /var/lib/pgsql96/data/pg_hba.conf
   sudo chkconfig postgresql96 on
   sudo service postgresql96 start
 fi
