@@ -1,4 +1,3 @@
-import {useApiToken} from '../context/useApiToken';
 import {ApiResponse, useResponse} from './ApiResponse';
 
 type PingResponse = {
@@ -10,10 +9,8 @@ type PingRequest = {
 };
 
 export const TestApi = {
-  ping: async (request: PingRequest): Promise<ApiResponse<PingResponse>> => {
-    const token = useApiToken();
+  ping: async (_request: PingRequest): Promise<ApiResponse<PingResponse>> => {
     const rsp = useResponse<PingResponse>();
-
     return rsp.build({
       pong: 'pong',
     });
