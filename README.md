@@ -78,6 +78,30 @@ up to date, and that the applications can build.
     ./run-server
     ./run-web
 
+The server should be runninng at http://localhost:8080, and http://localhost:8081
+
+8081 is the raw server, and 8080 is the webpack dev server, that live-updates in dev mode.
+
+You should do your testing locally on the 8080 server.
+
+# Configure Authentication
+
+## Google OAuth
+
+There should be a registered Google API's project, and credentials should be created:
+
+    https://console.developers.google.com/apis/credentials
+
+You must have a valid `OAuth Client ID`.
+This client id must have an `Authorized JavaScript origin` of `http://localhost:8080`.
+This client id must have an `Authorized redirect URI` of `http://localhost:8080/auth/google/callback`.
+
+    // File: ./secrets.ts
+    export default {
+        googleKey: "YOUR Client ID HERE",
+        googleSecret: "YOUR Client Secret HERE"
+    };
+
 # TODO
 
 - [x] React client, live-reload

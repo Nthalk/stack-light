@@ -1,17 +1,21 @@
+import {Express, Request, Response} from 'express';
 import express from 'express';
-import bodyParser from 'body-parser';
 import {RequestContextMiddleware} from './context/RequestContext';
 import {TestApi} from './api/TestApi';
-import {Request, Response} from 'express';
+import bodyParser from 'body-parser';
 import {ApiResponse, useResponse} from './api/ApiResponse';
-import path from 'path';
+import {useSecurity} from './security/Auth';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Configure our webserver
-const app = express();
+const app: Express = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(RequestContextMiddleware);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Security
+useSecurity(app);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Serve static files
@@ -47,5 +51,5 @@ app.use('/api', apiRouter);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Start webserver
 app.listen(8081, () => {
-  console.log('Started server...');
+  console.log('Started server... at http://localhost:8081/');
 });

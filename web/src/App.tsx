@@ -11,5 +11,10 @@ export default function App(): JSX.Element {
       setRsp(pong);
     })();
   }, [api.test]);
-  return <div>{JSON.stringify(rsp)}?</div>;
+
+  return (
+    <div>
+      <a href="/auth/google">Login</a>
+    </div>
+  );
 }
