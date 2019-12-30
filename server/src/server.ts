@@ -5,6 +5,7 @@ import {TestApi} from './api/TestApi';
 import bodyParser from 'body-parser';
 import {ApiResponse, useResponse} from './api/ApiResponse';
 import {useSecurity} from './security/Auth';
+import {useDb} from './services/Db';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Configure our webserver
@@ -50,6 +51,10 @@ app.use('/api', apiRouter);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Start webserver
-app.listen(8081, () => {
+app.listen(8081, async () => {
   console.log('Started server... at http://localhost:8081/');
+
+  const db = useDb();
+  const result = await db.query('select 1');
+  console.log(result.rows);
 });
