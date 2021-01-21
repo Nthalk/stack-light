@@ -23,7 +23,7 @@
     "@material-ui/lab": "^4.0.0-alpha.38",
     "clsx": "^1.0.4",
     "date-fns": "^2.8.1",
-    "immer": "^5.1.0",
+    "immer": "^8.0.1",
     "material-icons": "^0.3.1",
     "material-table": "^1.54.2",
     "react": "^16.12.0",
